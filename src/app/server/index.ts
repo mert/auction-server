@@ -18,7 +18,7 @@ export class Server {
     constructor(private app: IApp) {
         this.express = express()
         this.httpServer = http.createServer(this.express)
-        this.port = 5050
+        this.port = Number(process.env.PORT || 5050)
         this.ioServer = socketIo(this.httpServer, {
             path: '/auction',
         })
